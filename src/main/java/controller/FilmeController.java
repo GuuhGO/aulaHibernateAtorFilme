@@ -20,7 +20,7 @@ public class FilmeController {
 		return filmeDao.apenasUmFilme(nome);
 	}
 	
-	public void apagar (long id) {
+	public void apagar(long id) {
 		filmeDao.remover(id);
 	}
 	

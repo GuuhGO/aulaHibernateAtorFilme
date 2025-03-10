@@ -11,10 +11,17 @@ public class FilmeDao implements IFilmeDao{
 	EntityManagerFactory mf = Persistence.createEntityManagerFactory ("HibJPA");
 
 
-	public Filme pesquisar(String filme) {
+	public Filme pesquisar(String nomeFilme) {
 		return null;
 	}
-
+	
+	public Filme pesquisar(long id) {
+		EntityManager em = mf.createEntityManager();
+		Filme filme = em.find(Filme.class, id);
+		em.close();
+		return filme;
+	}
+	
 	public List<Filme> lista() {
 		EntityManager em = mf.createEntityManager();
 		List<Filme> filmes = em.createQuery("SELECT f FROM Filme f", Filme.class).getResultList();

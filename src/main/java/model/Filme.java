@@ -42,5 +42,10 @@ public class Filme implements Serializable{
 	public void setNomeDiretor(String nomeDiretor) {
 		this.nomeDiretor = nomeDiretor;
 	}
+	@Override
+	public String toString() {
+		return "Filme: " + titulo + " | Diretor: " + nomeDiretor;
+	}
+	
 	
 }

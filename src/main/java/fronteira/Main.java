@@ -74,7 +74,7 @@ public class Main {
 					updateActor(scanner, aControl, fControl);
 					break;
 				case 10:
-					System.out.println("");
+					actorParticipation(scanner, fControl);
 					break;
 				case 11:
 					System.out.println("Saindo do menu.");
@@ -89,6 +89,16 @@ public class Main {
 		} while (escolha != 11);
 
 		scanner.close();
+	}
+
+	private static void actorParticipation(Scanner scanner, FilmeController fControl) {
+		List<Filme> searchFilmResult = searchFilm(scanner, fControl);
+		System.out.print("Selecionar o item: ");
+		int ocorrencia = Integer.parseInt(scanner.nextLine());
+		ocorrencia--;
+		Filme filme = searchFilmResult.get(ocorrencia);
+		Ator ator = filme.getAtor();
+		System.out.println(ator);
 	}
 
 	private static void updateActor(Scanner scanner, AtorController aControl, FilmeController fControl) {

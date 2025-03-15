@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -16,10 +17,11 @@ public class Filme implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	
 	private String titulo;
-	
 	private String nomeDiretor;
+	
+	@OneToOne(mappedBy = "filme")
+	private Ator ator;
 	
 	public Filme( ) {
 		
@@ -41,6 +43,12 @@ public class Filme implements Serializable{
 	}
 	public void setNomeDiretor(String nomeDiretor) {
 		this.nomeDiretor = nomeDiretor;
+	}
+	public Ator getAtor() {
+		return ator;
+	}
+	public void setAtor(Ator ator) {
+		this.ator = ator;
 	}
 	@Override
 	public String toString() {
